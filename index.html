@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MS Project Kursusportal</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>MS Project Kursusportal</h1>
+      <p>
+        Del materialer, administrér ressourcer og lad deltagere tilmelde sig
+        kurser ét sted.
+      </p>
+    </header>
+
+    <main class="layout">
+      <section class="card" id="auth-card">
+        <h2>Log ind</h2>
+        <p class="hint">Brug en eksisterende konto eller opret en ny.</p>
+
+        <form id="login-form" class="stack">
+          <label>
+            E-mail
+            <input type="email" id="login-email" required />
+          </label>
+          <label>
+            Adgangskode
+            <input type="password" id="login-password" required />
+          </label>
+          <button type="submit">Log ind</button>
+        </form>
+
+        <hr />
+
+        <h3>Opret bruger</h3>
+        <form id="register-form" class="stack">
+          <label>
+            Navn
+            <input type="text" id="register-name" required />
+          </label>
+          <label>
+            E-mail
+            <input type="email" id="register-email" required />
+          </label>
+          <label>
+            Adgangskode
+            <input type="password" id="register-password" minlength="6" required />
+          </label>
+          <button type="submit" class="secondary">Opret konto</button>
+        </form>
+
+        <p id="auth-message" aria-live="polite"></p>
+      </section>
+
+      <section class="card hidden" id="portal-card">
+        <div class="portal-header">
+          <div>
+            <h2>Velkommen, <span id="user-name"></span></h2>
+            <p>Her finder du ressourcer og kursustilmelding til MS Project.</p>
+          </div>
+          <button id="logout-btn" class="ghost">Log ud</button>
+        </div>
+
+        <div class="portal-grid">
+          <article>
+            <h3>Ressourcer</h3>
+            <ul>
+              <li><a href="#">MS Project Quickstart (PDF)</a></li>
+              <li><a href="#">Skabelon: Projektplan</a></li>
+              <li><a href="#">Video: Gantt-diagrammer på 15 min</a></li>
+              <li><a href="#">FAQ: Ressourceallokering</a></li>
+            </ul>
+          </article>
+
+          <article>
+            <h3>Tilmeldingsmodul</h3>
+            <p>Vælg de kurser du vil deltage i:</p>
+            <div id="courses" class="courses"></div>
+            <h4>Dine tilmeldinger</h4>
+            <ul id="enrollments"></ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
